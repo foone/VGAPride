@@ -6,7 +6,8 @@
 *.lo
 *.o
 *.obj
-
+# is this case sensitive? I don't know. And Borland loves uppercase
+*.OBJ 
 # Precompiled Headers
 *.gch
 *.pch
@@ -30,3 +31,6 @@
 *.exe
 *.out
 *.app
+
+# Borland temp files:
+*.SWP
