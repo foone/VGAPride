@@ -210,6 +210,56 @@ static Flag five_stripe_lesbian_flag = Flag(
 	five_stripe_lesbian_flag_commands
 );
 
+
+static GraphicsCommand lydiandragon_lesbian_flag_commands[]={
+	GraphicsCommand(Rectangle,Left(h_4_0),Right(h_4_1),RGB(102, 51,153)),
+	GraphicsCommand(Rectangle,Left(h_4_1),Right(h_4_2),RGB(255,204, 51)),
+	GraphicsCommand(Rectangle,Left(h_4_2),Right(h_4_3),RGB(102,204, 51)),
+	GraphicsCommand(Rectangle,Left(h_4_3),Right(h_4_4),RGB(255,102,153)),
+	GraphicsCommand(EndCommandList)
+};
+
+static Flag lydiandragon_lesbian_flag = Flag(
+	"lydiandragon-lesbian",
+	"A Lesbian Pride Flag",
+	"Designed by lydiandragon (aka Lydia) in 2018",
+	"lydiandragon",
+	lydiandragon_lesbian_flag_commands
+);
+
+static GraphicsCommand maya_kern_lesbian_flag_commands[]={
+	GraphicsCommand(Rectangle,Left(h_4_0),Right(h_4_1),RGB(102, 51,153)),
+	GraphicsCommand(Rectangle,Left(h_4_1),Right(h_4_2),RGB(255,102,153)),
+	GraphicsCommand(Rectangle,Left(h_4_2),Right(h_4_3),RGB(255,204, 51)),
+	GraphicsCommand(Rectangle,Left(h_4_3),Right(h_4_4),RGB(102,204, 51)),
+	GraphicsCommand(EndCommandList)
+};
+
+static Flag maya_kern_lesbian_flag = Flag(
+	"maya-kern-lesbian",
+	"A revised version of the lydiandragon flag",
+	"Originally designed by lydiandragon in 2018. Modified by Maya Kern in 2019",
+	"maya-kern",
+	maya_kern_lesbian_flag_commands
+);
+
+static GraphicsCommand femme_lesbian_flag_commands[]={
+	GraphicsCommand(Rectangle,Left(h_4_0),Right(h_4_1),RGB(102, 51,153)),
+	GraphicsCommand(Rectangle,Left(h_4_1),Right(h_4_2),RGB(204,153,255)),
+	GraphicsCommand(Rectangle,Left(h_4_2),Right(h_4_3),RGB(255,204,255)),
+	GraphicsCommand(Rectangle,Left(h_4_3),Right(h_4_4),RGB(255,102,153)),
+	GraphicsCommand(EndCommandList)
+};
+
+static Flag femme_lesbian_flag = Flag(
+	"femme-lesbian",
+	"A Femme Lesbian Pride Flag",
+	"Designed by Rebecca Bettencourt in 2019",
+	NULL,
+	femme_lesbian_flag_commands
+);
+
+
 static GraphicsCommand agender_flag_commands[]={
 	GraphicsCommand(Rectangle,Left(h_7_0),Right(h_7_1),RGB(  0,  0,  0)),
 	GraphicsCommand(Rectangle,Left(h_7_1),Right(h_7_2),RGB(185,185,185)),
@@ -269,6 +319,22 @@ static Flag gay_men_flag = Flag(
 	gay_men_flag_commands
 );
 
+static GraphicsCommand five_stripe_gay_men_flag_commands[]={
+	GraphicsCommand(Rectangle,Left(h_5_0),Right(h_5_1),RGB(  0,165,213)),
+	GraphicsCommand(Rectangle,Left(h_5_1),Right(h_5_2),RGB( 86,185,255)),
+	GraphicsCommand(Rectangle,Left(h_5_2),Right(h_5_3),RGB(255,255,255)),
+	GraphicsCommand(Rectangle,Left(h_5_3),Right(h_5_4),RGB( 98,211,143)),
+	GraphicsCommand(Rectangle,Left(h_5_4),Right(h_5_5),RGB(  2,163, 66)),
+	GraphicsCommand(EndCommandList)
+};
+
+static Flag five_stripe_gay_men_flag = Flag(
+	"five-stripe-gay-men",
+	"A 5-stripe modified version of the gayflagblog flag",
+	NULL, // who designed this?
+	"toothpaste5",
+	five_stripe_gay_men_flag_commands
+);
 
 
 static GraphicsCommand genderfluid_flag_commands[]={
@@ -370,6 +436,24 @@ static Flag demisexual_flag = Flag(
 	NULL,
 	NULL,
 	demisexual_pride_flag_commands
+);
+
+static GraphicsCommand demiromantic_pride_flag_commands[]={
+	GraphicsCommand(Rectangle,Left(h_5_0),Right(h_5_1),RGB(255,255,255)),
+	GraphicsCommand(Rectangle,Left(h_5_1),Right(h_5_2),RGB(255,255,255)),
+	GraphicsCommand(Rectangle,Left(h_5_2),Right(h_5_3),RGB( 61,165, 66)),
+	GraphicsCommand(Rectangle,Left(h_5_3),Right(h_5_4),RGB(210,210,210)),
+	GraphicsCommand(Rectangle,Left(h_5_4),Right(h_5_5),RGB(210,210,210)),
+	GraphicsCommand(Triangle,Top(0),Point(243,h_2_1),Bottom(0),RGB(0,0,0)),
+	GraphicsCommand(EndCommandList)
+};
+
+static Flag demiromantic_flag = Flag(
+	"demiromantic",
+	"The Demiromantic pride flag",
+	NULL,
+	NULL,
+	demiromantic_pride_flag_commands
 );
 
 static GraphicsCommand progressive_pride_flag_commands[]={
@@ -790,17 +874,123 @@ static Flag nonbinary_flag = Flag(
 	nonbinary_flag_commands
 );
 
+
+static GraphicsCommand abrosexual_flag_commands[]={
+	GraphicsCommand(Rectangle,Left(h_5_0),Right(h_5_1),RGB(117,202,146)),
+	GraphicsCommand(Rectangle,Left(h_5_1),Right(h_5_2),RGB(178,228,197)),
+	GraphicsCommand(Rectangle,Left(h_5_2),Right(h_5_3),RGB(255,255,255)),
+	GraphicsCommand(Rectangle,Left(h_5_3),Right(h_5_4),RGB(230,149,181)),
+	GraphicsCommand(Rectangle,Left(h_5_4),Right(h_5_5),RGB(218, 68,108)),
+	GraphicsCommand(EndCommandList)
+};
+
+static Flag abrosexual_flag = Flag(
+	"abrosexual",
+	"The Abrosexual Pride Flag",
+	"Designed by the tumblr user pride-flags-for-us at an unknown date",
+	"abro",
+	abrosexual_flag_commands
+);
+
+static GraphicsCommand aroace_flag_commands[]={
+	GraphicsCommand(Rectangle,Left(h_5_0),Right(h_5_1),RGB(226,140,  0)),
+	GraphicsCommand(Rectangle,Left(h_5_1),Right(h_5_2),RGB(236,205,  0)),
+	GraphicsCommand(Rectangle,Left(h_5_2),Right(h_5_3),RGB(255,255,255)),
+	GraphicsCommand(Rectangle,Left(h_5_3),Right(h_5_4),RGB( 98,174,220)),
+	GraphicsCommand(Rectangle,Left(h_5_4),Right(h_5_5),RGB( 32, 56, 86)),
+	GraphicsCommand(EndCommandList)
+};
+
+static Flag aroace_flag = Flag(
+	"aroace",
+	"An Aroace Pride Flag",
+	"Designed by the tumblr user aroaceflags at an unknown date",
+	"acearo|arosexual",
+	aroace_flag_commands
+);
+
+static GraphicsCommand genderflux_flag_commands[]={
+	GraphicsCommand(Rectangle,Left(h_6_0),Right(h_6_1),RGB(244,118,149)),
+	GraphicsCommand(Rectangle,Left(h_6_1),Right(h_6_2),RGB(241,163,185)),
+	GraphicsCommand(Rectangle,Left(h_6_2),Right(h_6_3),RGB(206,206,206)),
+	GraphicsCommand(Rectangle,Left(h_6_3),Right(h_6_4),RGB(123,224,247)),
+	GraphicsCommand(Rectangle,Left(h_6_4),Right(h_6_5),RGB( 62,205,250)),
+	GraphicsCommand(Rectangle,Left(h_6_5),Right(h_6_6),RGB(254,244,140)),
+	GraphicsCommand(EndCommandList)
+};
+
+static Flag genderflux_flag = Flag(
+	"genderflux",
+	"The Genderflux Pride Flag",
+	"Designed by the tumblr user pride-flags-for-us at an unknown date",
+	"flux",
+	genderflux_flag_commands
+);
+
+static GraphicsCommand greysexual_flag_commands[]={
+	GraphicsCommand(Rectangle,Left(h_5_0),Right(h_5_1),RGB(110,  0,112)),
+	GraphicsCommand(Rectangle,Left(h_5_1),Right(h_5_2),RGB(210,210,210)),
+	GraphicsCommand(Rectangle,Left(h_5_2),Right(h_5_3),RGB(255,255,255)),
+	GraphicsCommand(Rectangle,Left(h_5_3),Right(h_5_4),RGB(210,210,210)),
+	GraphicsCommand(Rectangle,Left(h_5_4),Right(h_5_5),RGB(110,  0,112)),
+	GraphicsCommand(EndCommandList)
+};
+
+static Flag greysexual_flag = Flag(
+	"greysexual",
+	"The Greysexual Pride Flag",
+	"Designed by Milith Rusignuolo in 2013",
+	"graysexual|grey-asexual|gray-asexual|grey|gray",
+	greysexual_flag_commands
+);
+
+static GraphicsCommand neutrois_flag_commands[]={
+	GraphicsCommand(Rectangle,Left(h_3_0),Right(h_3_1),RGB(255,255,255)),
+	GraphicsCommand(Rectangle,Left(h_3_1),Right(h_3_2),RGB( 61,165, 66)),
+	GraphicsCommand(Rectangle,Left(h_3_2),Right(h_3_3),RGB(  0,  0,  0)),
+	GraphicsCommand(EndCommandList)
+};
+
+static Flag neutrois_flag = Flag(
+	"neutrois",
+	"The Neutrois Pride Flag",
+	NULL,
+	NULL,
+	neutrois_flag_commands
+);
+
+static GraphicsCommand proculsexual_flag_commands[]={
+	GraphicsCommand(Rectangle,Left(h_5_0),Right(h_5_1),RGB(210,210,210)),
+	GraphicsCommand(Rectangle,Left(h_5_1),Right(h_5_2),RGB(255,  0,  0)),
+	GraphicsCommand(Rectangle,Left(h_5_2),Right(h_5_3),RGB(211,176, 55)),
+	GraphicsCommand(Rectangle,Left(h_5_3),Right(h_5_4),RGB(255,  0,  0)),
+	GraphicsCommand(Rectangle,Left(h_5_4),Right(h_5_5),RGB(210,210,210)),
+	GraphicsCommand(EndCommandList)
+};
+
+static Flag proculsexual_flag = Flag(
+	"proculsexual",
+	"The Proculsexual Pride Flag",
+	"Designed by the tumblr user beyond-mogai-pride-flags at an unknown date",
+	"procul",
+	proculsexual_flag_commands
+);
+
+
 Flag *PRIDE_FLAGS[]={
 	&rainbow_flag, &seven_stripe_rainbow_flag, &original_rainbow_flag, 
 	&trans_pride, &aromantic_flag, &asexual_flag, &bisexual_flag,
 	&pansexual_flag, &lipstick_lesbian_colors_flag, &sadlesbeandisaster_lesbian_flag,
-	&five_stripe_lesbian_flag, &agender_flag, &bigender_flag, &gay_men_flag,
-	&genderfluid_flag, &genderqueer_flag, &polysexual_flag, &philadelphia_pride_flag,
-	&androgyne_flag, &demisexual_flag, &progressive_flag, &intersex_flag,
+	&five_stripe_lesbian_flag, &lydiandragon_lesbian_flag, &maya_kern_lesbian_flag,
+	&femme_lesbian_flag, &agender_flag, &bigender_flag, &gay_men_flag,
+	&five_stripe_gay_men_flag, &genderfluid_flag, &genderqueer_flag,
+	&polysexual_flag, &philadelphia_pride_flag, &androgyne_flag,
+	&demisexual_flag, &demiromantic_flag, &progressive_flag, &intersex_flag,
 	&leather_flag, &bear_flag,&labrys_flag,&polyamory_flag,&canada_pride_flag,
 	&jewish_pride_flag, &littleender_flag, &trains_flag, &lipstick_lesbian_flag,
 	&gay_flag_of_south_africa, &pink_union_jack_flag, &rubber_pride_flag, 
 	&gay_brazil_flag,&demigirl_flag,&demiboy_flag,&omnisexual_flag,
-	&nonbinary_flag,
+	&nonbinary_flag, &abrosexual_flag, &aroace_flag, &genderflux_flag,
+	&greysexual_flag, &neutrois_flag, &proculsexual_flag, 
 	NULL
 };
