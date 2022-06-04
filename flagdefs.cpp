@@ -1062,22 +1062,5 @@ static Flag aegosexual_flag = Flag(
 	aegosexual_pride_flag_commands
 );
 
-Flag *PRIDE_FLAGS[]={
-	&rainbow_flag, &seven_stripe_rainbow_flag, &original_rainbow_flag, 
-	&trans_pride, &aromantic_flag, &asexual_flag, &bisexual_flag,
-	&pansexual_flag, &lipstick_lesbian_colors_flag, &sadlesbeandisaster_lesbian_flag,
-	&five_stripe_lesbian_flag, &lydiandragon_lesbian_flag, &maya_kern_lesbian_flag,
-	&femme_lesbian_flag, &agender_flag, &bigender_flag, &gay_men_flag,
-	&five_stripe_gay_men_flag, &genderfluid_flag, &genderqueer_flag,
-	&polysexual_flag, &philadelphia_pride_flag, &androgyne_flag,
-	&demisexual_flag, &demiromantic_flag, &progressive_flag, &intersex_flag,
-	&leather_flag, &bear_flag,&labrys_flag,&polyamory_flag,&canada_pride_flag,
-	&jewish_pride_flag, &littleender_flag, &trains_flag, &lipstick_lesbian_flag,
-	&gay_flag_of_south_africa, &pink_union_jack_flag, &rubber_pride_flag, 
-	&gay_brazil_flag,&demigirl_flag,&demiboy_flag,&omnisexual_flag,
-	&nonbinary_flag, &crab_pride_flag, &trans_crab_flag,
-	&abrosexual_flag, &aroace_flag, &genderflux_flag,
-	&greysexual_flag, &neutrois_flag, &proculsexual_flag,  &aegosexual_flag,
-	&nonbinary_flag, 
-	NULL
-};
+
+#include "flagordr.h"

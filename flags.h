@@ -15,5 +15,5 @@ public:
 
 };
 
-extern class Flag *PRIDE_FLAGS[];
+extern class Flag far *PRIDE_FLAGS[];
 

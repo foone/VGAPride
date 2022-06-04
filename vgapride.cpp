@@ -61,8 +61,27 @@ void displayFlags(){
 		}
 	}
 }
+void quickFlags(){
+	for(int i=0;;i++){
+		Flag *flag=PRIDE_FLAGS[i];
+		if(flag==NULL)break;
+		if(i>0){
+			printf(", ");
+		}
+		printf("%s", flag->shortname);
+	}
+	printf("\n");
+}
+
 void displayUsage(){
 	printf("VGAPride 0.2 by Foone Turing (@foone), 2022\n\n");
-	printf("Usage: VGAPRIDE <FLAGNAME>\n");
+	printf("Other credits:\n");
+	printf(" * lz4_8088 decompression code: Jim Leonard\n");
+	printf(" * Aegosexual Flag: Keiya (@keiyakins)\n");
+	printf(" * Many flags: Rebecca G. Bettencourt (@RebeccaRGB)\n");
+	printf("\nUsage: VGAPRIDE <FLAGNAME>\n");
 	printf("run VGAPRIDE LIST | MORE to see a list of available flags. \n");
+	printf("\nQuick List:\n");
+	quickFlags();
+
 }
