@@ -1,8 +1,10 @@
 #include <graphics.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "flags.h"
 #include "display.h"
+#include <dos.h>
 
 #define MAX_COLORS 16
 int next_color;
@@ -68,13 +70,27 @@ const int polygon_mediumstar[]={-4,6,-2,1,-6,-2,-2,-2,0,-7,1,-2,6,-2,3,1,4,6,0,2
 
 
 static int polygon_points[16];
+
+char far * volatile vga_ptr = (char far *)MK_FP(0xA000,0);
+
+extern "C" unsigned int far lz4_decompress(const void *inbuffer, void*outbuffer);
+
+void DecompressStringIntoPlane(const unsigned char *compressed_plane){
+	void *plane_buffer = malloc(38400);
+	lz4_decompress((const void*)compressed_plane, plane_buffer);
+	memcpy(vga_ptr, plane_buffer, 38400);
+	free(plane_buffer);
+}
+
 void GraphicsCommand::render(){
 	int i;
 	if(shape==None || shape==EndCommandList)return;
+	if(shape != VGAPlane && shape!= Palette){
 		int color = getPalette(this->color);
 		setcolor(color);
 		setfillstyle(SOLID_FILL, color);
 		setlinestyle(SOLID_LINE, 0, NORM_WIDTH);
+	}
 	switch(shape){
 		case Rectangle:
 			bar(points[0].x,points[0].y,points[1].x-1,points[1].y-1);
@@ -134,6 +150,25 @@ void GraphicsCommand::render(){
 			}
 			fillpoly(i/2,polygon_points);
 			break;
+		}
+		case Palette:{
+			struct palettetype cpal;
+			getpalette(&cpal);
+			PaletteMap *pal=&pal_map[points[0].x];
+			pal->palette_entry=points[0].x;
+			pal->color=this->color;
+			setrgbpalette(
+				cpal.colors[pal->palette_entry],
+				this->color.r/4,
+				this->color.g/4,
+				this->color.b/4
+			);
+			break;
+		}
+		case VGAPlane:{
+			outp(0x3c4, 0x02);
+			outp(0x3c5, 1 << this->points[0].x);
+			DecompressStringIntoPlane(this->bitmap_plane);
 		}
 	}
 

@@ -9,7 +9,7 @@ public:
 	const char *credit;
 	const char *aliases;
 	GraphicsCommand	 *commands;
-	Flag(const char *shortname, const char *names, const char *credit, const char *aliases, GraphicsCommand *commands);
+	Flag(const char far *shortname, const char far *names, const char far *credit, const char far *aliases, GraphicsCommand far *commands);
 	const char *listAliases();
 	bool match(const char *name);
 

@@ -62,7 +62,7 @@ void displayFlags(){
 	}
 }
 void displayUsage(){
-	printf("VGAPride 0.1 by Foone Turing (@foone), 2022\n\n");
+	printf("VGAPride 0.2 by Foone Turing (@foone), 2022\n\n");
 	printf("Usage: VGAPRIDE <FLAGNAME>\n");
 	printf("run VGAPRIDE LIST | MORE to see a list of available flags. \n");
 }

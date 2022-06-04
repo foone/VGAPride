@@ -5,6 +5,7 @@
 #include "geometry.h"
 // Brazil is defined in its own file for Reasons
 #include "brazil.h"
+#include "crabs.h"
 
 // Shouldn't we be able to declare this inline?
 // YEAH YOU'D THINK. UNFORTUNATELY, BORLAND C++ 3.0 DISAGREES
@@ -790,6 +791,73 @@ static Flag nonbinary_flag = Flag(
 	nonbinary_flag_commands
 );
 
+static GraphicsCommand crab_pride_flag_commands[]={
+	GraphicsCommand(Palette, 0, RGB(255, 38, 12)),
+	GraphicsCommand(Palette, 1, RGB(  0,  0,  0)),
+	GraphicsCommand(Palette, 2, RGB(127, 63,  0)),
+	GraphicsCommand(Palette, 3, RGB(255,140,  0)),
+	GraphicsCommand(Palette, 4, RGB(  0,255,  0)),
+	GraphicsCommand(Palette, 5, RGB(255,242,140)),
+	GraphicsCommand(Palette, 6, RGB(255,191,191)),
+	GraphicsCommand(Palette, 7, RGB(255,237,  0)),
+	GraphicsCommand(Palette, 8, RGB(216,165, 50)),
+	GraphicsCommand(Palette, 9, RGB(178,114,  0)),
+	GraphicsCommand(Palette,10, RGB(137,252,226)),
+	GraphicsCommand(Palette,11, RGB(  0, 77,255)),
+	GraphicsCommand(Palette,12, RGB(255,255,255)),
+	GraphicsCommand(Palette,13, RGB(178,229,229)),
+	GraphicsCommand(Palette,14, RGB(  0,128, 38)),
+	GraphicsCommand(Palette,15, RGB(117,  7,135)),
+	GraphicsCommand(Palette,16, RGB(252,252,252)),
+	GraphicsCommand(VGAPlane, crab0_dat_lz4, 0),
+	GraphicsCommand(VGAPlane, crab1_dat_lz4, 1),
+	GraphicsCommand(VGAPlane, crab2_dat_lz4, 2),
+	GraphicsCommand(VGAPlane, crab3_dat_lz4, 3),
+	GraphicsCommand(EndCommandList)
+};
+
+static Flag crab_pride_flag = Flag(
+	"crab-pride",
+	"The Cool Crab Pride Flag",
+	"Created by Foone Turing in 2022, based on the Cool Crab from Print Shop Deluxe",
+	"crab|crabs",
+	crab_pride_flag_commands
+);
+static GraphicsCommand trans_crab_flag_commands[]={
+	GraphicsCommand(Palette, 0, RGB( 88,204,248)),
+	GraphicsCommand(Palette, 1, RGB( 89, 38, 38)),
+	GraphicsCommand(Palette, 2, RGB(127, 63,  0)),
+	GraphicsCommand(Palette, 3, RGB(  0,  0,  0)),
+	GraphicsCommand(Palette, 4, RGB(244,160,192)),
+	GraphicsCommand(Palette, 5, RGB(  0,255,  0)),
+	GraphicsCommand(Palette, 6, RGB(255,242,140)),
+	GraphicsCommand(Palette, 7, RGB(255, 38, 12)),
+	GraphicsCommand(Palette, 8, RGB(216,165, 50)),
+	GraphicsCommand(Palette, 9, RGB(252,252,252)),
+	GraphicsCommand(Palette,10, RGB(178,114,  0)),
+	GraphicsCommand(Palette,11, RGB(  0, 77,255)),
+	GraphicsCommand(Palette,12, RGB(255,255,255)),
+	GraphicsCommand(Palette,13, RGB(178,229,229)),
+	GraphicsCommand(Palette,14, RGB(117,  7,135)),
+	GraphicsCommand(Palette,15, RGB(  0,  0, 76)),
+	GraphicsCommand(VGAPlane, trans0_dat_lz4, 0),
+	GraphicsCommand(VGAPlane, trans1_dat_lz4, 1),
+	GraphicsCommand(VGAPlane, trans2_dat_lz4, 2),
+	GraphicsCommand(VGAPlane, trans3_dat_lz4, 3),
+	GraphicsCommand(EndCommandList)
+};
+
+static Flag trans_crab_flag = Flag(
+	"trans-crab",
+	"The Cool Crab Trans Flag",
+	"Created by Foone Turing in 2022, based on the Cool Crab from Print Shop Deluxe",
+	"transcrab",
+	trans_crab_flag_commands
+);
+
+
+
+
 Flag *PRIDE_FLAGS[]={
 	&rainbow_flag, &seven_stripe_rainbow_flag, &original_rainbow_flag, 
 	&trans_pride, &aromantic_flag, &asexual_flag, &bisexual_flag,
@@ -801,6 +869,6 @@ Flag *PRIDE_FLAGS[]={
 	&jewish_pride_flag, &littleender_flag, &trains_flag, &lipstick_lesbian_flag,
 	&gay_flag_of_south_africa, &pink_union_jack_flag, &rubber_pride_flag, 
 	&gay_brazil_flag,&demigirl_flag,&demiboy_flag,&omnisexual_flag,
-	&nonbinary_flag,
+	&nonbinary_flag, &crab_pride_flag, &trans_crab_flag,
 	NULL
 };

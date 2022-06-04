@@ -3,7 +3,7 @@
 
 enum SHAPE_TYPE { 
 	Rectangle, Triangle, Quad, Ellipse, Polygon, PolygonOutline, 
-	ThickPolygonOutline, Lines, ThickLines, Star, None, EndCommandList 
+	ThickPolygonOutline, Lines, ThickLines, Star, VGAPlane, Palette, None, EndCommandList 
 };
 enum STAR_SIZE {
 	BigStar, TinyStar, MediumStar
@@ -46,6 +46,7 @@ public:
 	RGBCOLOR color;
 	int * point_list;
 	int point_count;
+	unsigned char * bitmap_plane;
 
 	GraphicsCommand(){
 		shape=None;
@@ -89,6 +90,16 @@ public:
 		this->points[0]=*p1;
 		this->points[1]=Point2D(size,size);
 		this->color=color;
+	}
+	GraphicsCommand(SHAPE_TYPE shape, unsigned char *bitmap_plane, int plane){
+		this->shape=shape;
+		this->bitmap_plane = bitmap_plane;
+		this->points[0]=Point2D(plane,plane);
+	}
+	GraphicsCommand(SHAPE_TYPE shape, int palette_index, RGBCOLOR color){
+		this->shape=shape;
+		this->points[0]=Point2D(palette_index, palette_index);
+		this->color = color;
 	}
 
 	void render();
