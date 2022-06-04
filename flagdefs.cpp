@@ -874,7 +874,6 @@ static Flag nonbinary_flag = Flag(
 	nonbinary_flag_commands
 );
 
-
 static GraphicsCommand abrosexual_flag_commands[]={
 	GraphicsCommand(Rectangle,Left(h_5_0),Right(h_5_1),RGB(117,202,146)),
 	GraphicsCommand(Rectangle,Left(h_5_1),Right(h_5_2),RGB(178,228,197)),
@@ -977,6 +976,26 @@ static Flag proculsexual_flag = Flag(
 );
 
 
+static GraphicsCommand aegosexual_pride_flag_commands[]={
+	GraphicsCommand(Rectangle,Left(h_4_0),Right(h_4_1),RGB(  0,  0,  0)),
+	GraphicsCommand(Rectangle,Left(h_4_1),Right(h_4_2),RGB(163,163,163)),
+	GraphicsCommand(Rectangle,Left(h_4_2),Right(h_4_3),RGB(255,255,255)),
+	GraphicsCommand(Rectangle,Left(h_4_3),Right(h_4_4),RGB(128,  0,128)),
+	GraphicsCommand(Quad,Point(0,h_4_0),Point(640,h_4_0),Point(560,h_4_1),Point(80,h_4_1),RGB(128,  0,128)),
+	GraphicsCommand(Quad,Point(80,h_4_1),Point(560,h_4_1),Point(480,h_4_2),Point(160,h_4_2),RGB(255,255,255)),
+	GraphicsCommand(Quad,Point(159,h_4_2),Point(481,h_4_2),Point(400,h_4_3),Point(240,h_4_3),RGB(163,163,163)), // Cheating slightly to prevent white touching white
+	GraphicsCommand(Triangle,Point(240,h_4_3),Point(400,h_4_3),Point(320,h_4_4),RGB(  0,  0,  0)),
+	GraphicsCommand(EndCommandList)
+};
+
+static Flag aegosexual_flag = Flag(
+	"aegosexual",
+	"The Aegosexual Pride Flag, formerly called the Autochorissexual Pride Flag",
+	"Created by tumblr user 'hunterinabrowncoat' in 2014",
+	"aego|autochorissexual|autochoris",
+	aegosexual_pride_flag_commands
+);
+
 Flag *PRIDE_FLAGS[]={
 	&rainbow_flag, &seven_stripe_rainbow_flag, &original_rainbow_flag, 
 	&trans_pride, &aromantic_flag, &asexual_flag, &bisexual_flag,
@@ -991,6 +1010,7 @@ Flag *PRIDE_FLAGS[]={
 	&gay_flag_of_south_africa, &pink_union_jack_flag, &rubber_pride_flag, 
 	&gay_brazil_flag,&demigirl_flag,&demiboy_flag,&omnisexual_flag,
 	&nonbinary_flag, &abrosexual_flag, &aroace_flag, &genderflux_flag,
-	&greysexual_flag, &neutrois_flag, &proculsexual_flag, 
+	&greysexual_flag, &neutrois_flag, &proculsexual_flag,  &aegosexual_flag,
+	&nonbinary_flag,
 	NULL
 };
