@@ -75,10 +75,12 @@ char far * volatile vga_ptr = (char far *)MK_FP(0xA000,0);
 
 extern "C" unsigned int far lz4_decompress(const void *inbuffer, void*outbuffer);
 
+const int PLANE_SIZE = 38400; // 640*480/8
+
 void DecompressStringIntoPlane(const unsigned char *compressed_plane){
-	void *plane_buffer = malloc(38400);
+	void far *plane_buffer = malloc(PLANE_SIZE);
 	lz4_decompress((const void*)compressed_plane, plane_buffer);
-	memcpy(vga_ptr, plane_buffer, 38400);
+	memcpy(vga_ptr, plane_buffer, PLANE_SIZE);
 	free(plane_buffer);
 }
 
