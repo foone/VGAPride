@@ -74,7 +74,7 @@ void quickFlags(){
 }
 
 void displayUsage(){
-	printf("VGAPride 0.2 by Foone Turing (@foone), 2022\n\n");
+	printf("VGAPride %s by Foone Turing (@foone), 2022\n\n", VERSION);
 	printf("Other credits:\n");
 	printf(" * lz4_8088 decompression code: Jim Leonard\n");
 	printf(" * Aegosexual Flag: Keiya (@keiyakins)\n");
