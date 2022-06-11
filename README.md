@@ -14,7 +14,6 @@ This project uses Borland Turbo C++ 3.0 and Borland Turbo Assembler 5.0.
 3. switch to that directory (I used C:\VGAPRIDE)
 4. Open the project with "tc vgapride.prj"
 5. Select Compile->Build All from the menus to build the EXE.
-6. Run UPX (I used 3.96) to compresse the EXE
 
 # License
 
