@@ -22,21 +22,21 @@ RGBCOLOR RGB(int r, int g, int b){
 	return RGBCOLOR(r,g,b);
 }
 
-Point2D* Point(int x, int y){
-	Point2D *p=new Point2D(x,y);
+Point2D Point(int x, int y){
+	Point2D p=Point2D(x,y);
 	return p;
 }
 
-Point2D *Left(int y){
+Point2D Left(int y){
 	return Point(0,y);
 }
-Point2D *Right(int y){
+Point2D Right(int y){
 	return Point(640,y);
 }
 
-Point2D *Top(int x){
+Point2D Top(int x){
 	return Point(x,0);
 }
-Point2D *Bottom(int x){
+Point2D Bottom(int x){
 	return Point(x,480);
 }
