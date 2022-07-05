@@ -16,6 +16,7 @@ class Flag far *PRIDE_FLAGS[]={
 	&demigirl_flag,
 	&demiromantic_flag,
 	&demisexual_flag,
+	&disability_pride_flag,
 	&femme_lesbian_flag,
 	&five_stripe_gay_men_flag,
 	&five_stripe_lesbian_flag,

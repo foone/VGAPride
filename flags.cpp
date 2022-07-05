@@ -14,23 +14,60 @@ int countCommands(GraphicsCommand commands[]){
 	return 0;
 }
 
+void Flag::flag_setup(const char far *shortname, 
+		const char far *names, 
+		const char far *credit, 
+		const char far *aliases, 
+		GraphicsCommand far *commands
+){
+	this->shortname=shortname;
+	this->name=names;
+	this->credit=credit;
+	this->aliases=aliases;
+	this->text_color=RGB(255,255,255);
+	this->text_size=4;
+	this->text_layout = LAYOUT_CENTER;
+	this->commands = commands;
+}
+
+
 Flag::Flag(
 	const char far *shortname,
 	const char far *names,
-	const char far *credit,
+	const char far *credits,
 	const char far *aliases,
 	GraphicsCommand commands[]
 ){
-		this->shortname=shortname;
-		this->name=names;
-		this->credit=credit;
-		this->aliases=aliases;
-		int num_commands = countCommands(commands);
-		this->commands = (GraphicsCommand*)new GraphicsCommand[num_commands];
-		for(int i=0;i<num_commands;i++){
-			this->commands[i]=commands[i];
-		}
-	}
+	this->flag_setup(shortname, names, credits, aliases, commands);
+}
+Flag::Flag(
+	const char far *shortname,
+	const char far *names,
+	const char far *credits,
+	const char far *aliases,
+	GraphicsCommand commands[],
+	RGBCOLOR text_color,
+	int text_size
+){
+	this->flag_setup(shortname, names, credits, aliases, commands);
+	this->text_color=text_color;
+	this->text_size=text_size;
+}
+Flag::Flag(
+	const char far *shortname,
+	const char far *names,
+	const char far *credits,
+	const char far *aliases,
+	GraphicsCommand commands[],
+	RGBCOLOR text_color,
+	int text_size,
+	TextLayout text_layout
+){
+	this->flag_setup(shortname, names, credits, aliases, commands);
+	this->text_color=text_color;
+	this->text_size=text_size;
+	this->text_layout = text_layout;
+}
 
 #define ALIASBUFFER_SIZE 200
 char ALIASBUFFER[ALIASBUFFER_SIZE];

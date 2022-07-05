@@ -5,6 +5,7 @@
 #include "flags.h"
 #include "display.h"
 #include <dos.h>
+#include <alloc.h>
 
 #define MAX_COLORS 16
 int next_color;
@@ -26,6 +27,7 @@ int getPalette(RGBCOLOR rgb){
 		}
 	}
 	if(next_color>=MAX_COLORS){
+		closegraph();
 		printf("Needed more colors than I have!\n");
 		exit(4);
 	}
@@ -51,6 +53,12 @@ void displayFlag(Flag *flag){
 		if(flag->commands[i].shape==EndCommandList)break;
 		flag->commands[i].render();
 	}
+	int ret = farheapcheck();
+	if(ret==_HEAPCORRUPT){
+		closegraph();
+		printf("Heap corrupted!");
+		exit(3);
+	}
 }
 
 void GraphicsCommand::drawLines(int thickness){
@@ -64,24 +72,51 @@ void GraphicsCommand::drawLines(int thickness){
 	}
 }
 
-const int polygon_bigstar[]={-5,7,-3,1,-7,-2,-2,-2,0,-8,2,-2,7,-2,3,1,5,7,0,3,-1,-1};
-const int polygon_tinystar[]={-3,3,-2,0,-4,-1,-1,-1,0,-4,1,-1,3,-1,1,0,2,3,0,1,-1,-1};
-const int polygon_mediumstar[]={-4,6,-2,1,-6,-2,-2,-2,0,-7,1,-2,6,-2,3,1,4,6,0,2,-1,-1};
+const int polygon_bigstar[]={-5,7,-3,1,-7,-2,-2,-2,0,-8,2,-2,7,-2,3,1,5,7,0,3,-1,-1,-1};
+const int polygon_tinystar[]={-3,3,-2,0,-4,-1,-1,-1,0,-4,1,-1,3,-1,1,0,2,3,0,1,-1,-1,-1};
+const int polygon_mediumstar[]={-4,6,-2,1,-6,-2,-2,-2,0,-7,1,-2,6,-2,3,1,4,6,0,2,-1,-1,-1};
 
 
-static int polygon_points[16];
+static int polygon_points[32];
 
 char far * volatile vga_ptr = (char far *)MK_FP(0xA000,0);
 
-extern "C" unsigned int far lz4_decompress(const void *inbuffer, void*outbuffer);
+extern "C" unsigned int far lz4_decompress(const void far *inbuffer, void* far outbuffer);
 
-const int PLANE_SIZE = 38400; // 640*480/8
+#define PLANE_SIZE 38656 // 640*480/8 + 256
 
-void DecompressStringIntoPlane(const unsigned char *compressed_plane){
-	void far *plane_buffer = malloc(PLANE_SIZE);
-	lz4_decompress((const void*)compressed_plane, plane_buffer);
+#define VGA_INDEX_REGISTER 0x3C4
+#define VGA_DATA_REGISTER 0x3C5
+#define VGA_MAP_MASK_INDEX 0x02
+
+
+int GetVGAMapRegister(){
+	outp(VGA_INDEX_REGISTER, VGA_MAP_MASK_INDEX);
+	return inp(VGA_DATA_REGISTER);
+}
+void SetVGAMapRegister(int plane_mask){
+	outp(VGA_INDEX_REGISTER, VGA_MAP_MASK_INDEX);
+	outp(VGA_DATA_REGISTER, plane_mask);
+}
+
+void DecompressStringIntoPlane(const unsigned char far *compressed_plane, int plane){
+	// faralloc instead of a local stack alloc because we want it to be segment-aligned, or nearly.
+	
+	unsigned char far *plane_buffer = (unsigned char far *) farmalloc(PLANE_SIZE);
+	if(!plane_buffer){
+		closegraph();
+		printf("Couldn't allocate memory for decompression!\n");
+		exit(5);
+	}
+	int old_vga_plane_settings = GetVGAMapRegister();
+
+	SetVGAMapRegister(1 << plane);
+
+	lz4_decompress((const void far *)compressed_plane, plane_buffer);
 	memcpy(vga_ptr, plane_buffer, PLANE_SIZE);
-	free(plane_buffer);
+	farfree(plane_buffer);
+
+	SetVGAMapRegister(old_vga_plane_settings);
 }
 
 void GraphicsCommand::render(){
@@ -144,6 +179,8 @@ void GraphicsCommand::render(){
 				case MediumStar:
 					polygon_star=polygon_mediumstar;
 				break;
+				default:
+					return;
 			}
 			for(i=0;;i+=2){
 				if(polygon_star[i]==-1 && polygon_star[i+1]==-1)break;
@@ -168,9 +205,8 @@ void GraphicsCommand::render(){
 			break;
 		}
 		case VGAPlane:{
-			outp(0x3c4, 0x02);
-			outp(0x3c5, 1 << this->points[0].x);
-			DecompressStringIntoPlane(this->bitmap_plane);
+			DecompressStringIntoPlane(this->bitmap_plane, this->points[0].x);
+		break;
 		}
 	}
 

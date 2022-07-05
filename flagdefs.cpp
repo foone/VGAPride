@@ -44,7 +44,9 @@ static Flag seven_stripe_rainbow_flag = Flag(
 	"The Rainbow Pride flag (7-stripe version)",
 	"Designed by Gilbert Baker, hot pink dropped due to fabric availability",
 	"gay7|rainbow7",
-	seven_stripe_rainbow_flag_commands
+	seven_stripe_rainbow_flag_commands,
+	RGB(255,255,255),
+	3
 );
 
 static GraphicsCommand original_rainbow_flag_commands[]={
@@ -167,10 +169,12 @@ static GraphicsCommand lipstick_lesbian_colors_commands[]={
 
 static Flag lipstick_lesbian_colors_flag = Flag(
 	"lipstick-lesbian-colors-lesbian",
-	"A Lesbian Pride Flag, using colors from the Lipstick Lesbian flag",
+	"A Lesbian Pride Flag using the Lipstick Lesbian flag colors",
 	"Introduced on the blog This Lesbian Life in 2010",
 	"lipstick-lesbian-colors",
-	lipstick_lesbian_colors_commands
+	lipstick_lesbian_colors_commands,
+	RGB(255,255,255),
+	2
 );
 
 
@@ -208,7 +212,9 @@ static Flag five_stripe_lesbian_flag = Flag(
 	"A 5-stripe version of the sadlesbeandisaster flag",
 	"Originally designed by sadlesbeandisaster (aka Emily) in 2018",
 	"lesbian5|lesbian",
-	five_stripe_lesbian_flag_commands
+	five_stripe_lesbian_flag_commands,
+	RGB(255,255,255),
+	3
 );
 
 
@@ -238,10 +244,12 @@ static GraphicsCommand maya_kern_lesbian_flag_commands[]={
 
 static Flag maya_kern_lesbian_flag = Flag(
 	"maya-kern-lesbian",
-	"A revised version of the lydiandragon flag",
+	"A revised version of the lydiandragon Lesbian flag",
 	"Originally designed by lydiandragon in 2018. Modified by Maya Kern in 2019",
 	"maya-kern",
-	maya_kern_lesbian_flag_commands
+	maya_kern_lesbian_flag_commands,
+	RGB(255,255,255),
+	3
 );
 
 static GraphicsCommand femme_lesbian_flag_commands[]={
@@ -334,7 +342,9 @@ static Flag five_stripe_gay_men_flag = Flag(
 	"A 5-stripe modified version of the gayflagblog flag",
 	NULL, // who designed this?
 	"toothpaste5",
-	five_stripe_gay_men_flag_commands
+	five_stripe_gay_men_flag_commands,
+	RGB(255,255,255),
+	2
 );
 
 
@@ -349,7 +359,7 @@ static GraphicsCommand genderfluid_flag_commands[]={
 
 static Flag genderfluid_flag = Flag(
 	"genderfluid",
-	"The genderfluid Pride Flag",
+	"The Genderfluid Pride Flag",
 	NULL, 
 	NULL,
 	genderfluid_flag_commands
@@ -364,7 +374,7 @@ static GraphicsCommand genderqueer_flag_commands[]={
 
 static Flag genderqueer_flag = Flag(
 	"genderqueer",
-	"The genderqueer Pride Flag",
+	"The Genderqueer Pride Flag",
 	"Designed by Marilyn Roxie in 2011",
 	NULL,
 	genderqueer_flag_commands
@@ -380,7 +390,7 @@ static GraphicsCommand polysexual_flag_commands[]={
 
 static Flag polysexual_flag = Flag(
 	"polysexual",
-	"The polysexual Pride Flag",
+	"The Polysexual Pride Flag",
 	NULL, // Who made this?
 	NULL,
 	polysexual_flag_commands
@@ -400,10 +410,12 @@ static GraphicsCommand philadelphia_pride_flag_commands[]={
 
 static Flag philadelphia_pride_flag = Flag(
 	"philadelphia-pride-flag",
-	"A modification of the rainbow pride flag to add black & brown for people of color",
+	"Adds black & brown to the rainbow flag for POC",
 	"Designed in Philadelphia for the 2017 Pride Kick-Off",
 	"philadelphia|philly",
-	philadelphia_pride_flag_commands
+	philadelphia_pride_flag_commands,
+	RGB(255,255,255),
+	3
 );
 
 static GraphicsCommand androgyne_pride_flag_commands[]={
@@ -415,7 +427,7 @@ static GraphicsCommand androgyne_pride_flag_commands[]={
 
 static Flag androgyne_flag = Flag(
 	"androgyne",
-	"The most commonly used androgyne flag",
+	"The Androgyne flag",
 	"Designed by tumblr user saveferris in 2011",
 	NULL,
 	androgyne_pride_flag_commands
@@ -436,7 +448,9 @@ static Flag demisexual_flag = Flag(
 	"The Demisexual pride flag",
 	NULL,
 	NULL,
-	demisexual_pride_flag_commands
+	demisexual_pride_flag_commands,
+	RGB(0,0,0),
+	4
 );
 
 static GraphicsCommand demiromantic_pride_flag_commands[]={
@@ -454,7 +468,9 @@ static Flag demiromantic_flag = Flag(
 	"The Demiromantic pride flag",
 	NULL,
 	NULL,
-	demiromantic_pride_flag_commands
+	demiromantic_pride_flag_commands,
+	RGB(0,0,0),
+	4
 );
 
 static GraphicsCommand progressive_pride_flag_commands[]={
@@ -502,7 +518,9 @@ static Flag intersex_flag = Flag(
 	"The Intersex Pride Flag",
 	NULL,
 	NULL,
-	intersex_pride_flag_commands
+	intersex_pride_flag_commands,
+	RGB(0,0,0),
+	4
 );
 
 static int polygon_heart[]={207,200,147,196,112,191,81,177,55,145,52,115,59,91,79,74,99,70,120,75,121,53,129,28,146,14,161,7,183,11,197,22,210,40,219,56,224,80,-1,-1};
@@ -615,7 +633,9 @@ static Flag canada_pride_flag = Flag(
 	"The Canada Pride Flag",
 	NULL,
 	NULL,
-	canada_pride_flag_commands
+	canada_pride_flag_commands,
+	RGB(0,0,0),
+	4
 );
 int polygon_star_of_david0[]={232,292,319,135,319,169,260,274,-1,-1};
 int polygon_star_of_david1[]={232,292,260,274,377,274,406,291,-1,-1};
@@ -679,7 +699,9 @@ static Flag trains_flag = Flag(
 	"The Trains Pride flag: actually a painting called 'Train Landscape'",
 	"Painted by Ellsworth Kelly in 1953",
 	NULL,
-	trains_pride_flag_commands
+	trains_pride_flag_commands,
+	RGB(0,0,0),
+	4
 );
 
 
@@ -732,7 +754,10 @@ static Flag gay_flag_of_south_africa = Flag(
 	"The gay flag of South Africa",
 	"Designed by Eugene Brockman in 2010",
 	"south-africa|sa",
-	gay_flag_of_south_africa_commands
+	gay_flag_of_south_africa_commands,
+	RGB(255,255,255),
+	3,
+	LAYOUT_RIGHT
 );
 
 static GraphicsCommand pink_union_jack_flag_commands[]={
@@ -770,7 +795,9 @@ static Flag pink_union_jack_flag = Flag(
 	"A pink variant on the Union Jack flag",
 	"Designed by David Gwinnutt and launched in 2006",
 	"pink-jack",
-	pink_union_jack_flag_commands
+	pink_union_jack_flag_commands,
+	RGB(0,0,0),
+	4
 );
 
 int polygon_rubber0[]={0,113,306,113,400,271,410,275,639,131,639,202,388,372,282,181,-1,181,-1,-1};
@@ -852,7 +879,7 @@ static GraphicsCommand omnisexual_flag_commands[]={
 
 static Flag omnisexual_flag = Flag(
 	"omnisexual",
-	"The omnisexual Pride Flag",
+	"The Omnisexual Pride Flag",
 	NULL,
 	"omni",
 	omnisexual_flag_commands
@@ -905,7 +932,7 @@ static GraphicsCommand aroace_flag_commands[]={
 
 static Flag aroace_flag = Flag(
 	"aroace",
-	"An Aroace Pride Flag",
+	"The Aroace Pride Flag",
 	"Designed by the tumblr user aroaceflags at an unknown date",
 	"acearo|arosexual",
 	aroace_flag_commands
@@ -926,7 +953,9 @@ static Flag genderflux_flag = Flag(
 	"The Genderflux Pride Flag",
 	"Designed by the tumblr user pride-flags-for-us at an unknown date",
 	"flux",
-	genderflux_flag_commands
+	genderflux_flag_commands,
+	RGB(0,0,0),
+	4
 );
 
 static GraphicsCommand greysexual_flag_commands[]={
@@ -975,7 +1004,9 @@ static Flag proculsexual_flag = Flag(
 	"The Proculsexual Pride Flag",
 	"Designed by the tumblr user beyond-mogai-pride-flags at an unknown date",
 	"procul",
-	proculsexual_flag_commands
+	proculsexual_flag_commands,
+	RGB(0,0,0),
+	4
 );
 
 
@@ -997,6 +1028,33 @@ static Flag aegosexual_flag = Flag(
 	"Created by tumblr user 'hunterinabrowncoat' in 2014",
 	"aego|autochorissexual|autochoris",
 	aegosexual_pride_flag_commands
+);
+
+
+
+static GraphicsCommand disability_pride_flag_commands[]={
+	GraphicsCommand(Triangle,Point(196,  0),Point(649,  0),Point(639,333),               RGB( 88, 88, 88)),
+	GraphicsCommand(Quad,    Point(116,  0),Point(195,  0),Point(639,334),Point(639,394),RGB( 58,175,125)),
+	GraphicsCommand(Quad,    Point( 33,  0),Point(115,  0),Point(639,395),Point(639,456),RGB(122,193,224)),
+	GraphicsCommand(Quad,    Point(  0, 38),Point(  0,  0),Point( 32,  0),Point(639,457),RGB(233,233,233)),
+	GraphicsCommand(Quad,    Point(  0, 38),Point(639,457),Point(639,479),Point(588,479),RGB(233,233,233)),
+	GraphicsCommand(Quad,    Point(  0, 99),Point(  0, 39),Point(587,479),Point(507,479),RGB(238,223,119)),
+	GraphicsCommand(Quad,    Point(  0,159),Point(  0, 98),Point(506,479),Point(430,479),RGB(207,114,128)),
+	GraphicsCommand(Triangle,Point(  0,160),Point(429,479),Point(  0,479),               RGB( 88, 88, 88)),
+
+
+	GraphicsCommand(EndCommandList)
+};
+
+static Flag disability_pride_flag = Flag(
+	"disability",
+	"The Disability Pride Flag",
+	"Created by Ann Magill (@capricorn-0mnikorn) in 2022",
+	"disabled",
+	disability_pride_flag_commands,
+	RGB(255,255,255),
+	3,
+	LAYOUT_LEFT
 );
 
 

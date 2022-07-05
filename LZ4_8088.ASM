@@ -8,11 +8,11 @@
         P8086
         IDEAL
         JUMPS ;needed because an early condition jump is > 128 bytes
-        MODEL COMPACT 
+        MODEL HUGE 
 
         CODESEG
 
-PUBLIC  _lz4_decompress, _lz4_decompress_small
+PUBLIC  _lz4_decompress
 
 ; Must declare this in the code segment.
 SHR4table:
@@ -90,7 +90,8 @@ SHR4table:
 ; New timings:          shuttle  81982 text 43664 robotron 296081 +++
 
 PROC    _lz4_decompress CPP       far
-ARG     inb:DWORD, outb:DWORD 
+ARG     inb:DWORD, outb:DWORD
+USES    DI,SI,BP
         push    ds              ;preserve compiler assumptions
         les     di,[outb]       ;load target buffer
         push    di              ;save original starting offset (in case != 0)
@@ -224,86 +225,5 @@ buildmcount:                    ;build full match length count - AX is 0
 
 ENDP    _lz4_decompress
 
-
-
-;---------------------------------------------------------------
-; function lz4_decompress_small(inb,outb:pointer):word; assembler;
-;
-; Same as LZ4_Decompress but optimized for size, not speed. Still pretty fast,
-; although roughly 30% slower than lz4_decompress and RLE sequences are not
-; optimally handled.  Same Input, Output, and Trashes as lz4_decompress.
-; Minus the Turbo Pascal preamble/postamble, assembles to 78 bytes.
-;---------------------------------------------------------------
-
-PROC    _lz4_decompress_small  C  far
-ARG     inb:DWORD, outb:DWORD
-        push    ds              ;preserve compiler assumptions
-        les     di,[outb]       ;load target buffer
-        lds     si,[inb]        ;load source buffer
-        cld                     ;make strings copy forward
-        lodsw
-        lodsw                   ;skip magic number, smaller than "add si,4"
-        lodsw                   ;load chunk size low 16-bit word
-        xchg    bx,ax           ;BX = size of compressed chunk
-        add     bx,si           ;BX = threshold to stop decompression
-        lodsw                   ;load chunk size high 16-bit word
-        or      ax,ax           ;is high word non-zero?
-        jnz     @@done          ;If so, chunk too big or malformed, abort
-@@parsetoken:                   ;CX=0 here because of REP at end of loop
-        lodsb                   ;grab token to AL
-        mov     dx,ax           ;preserve packed token in DX
-@@copyliterals:
-        mov     cx,4            ;set full CX reg to ensure CH is 0
-        shr     al,cl           ;unpack upper 4 bits
-        call    buildfullcount  ;build full literal count if necessary
-@@doliteralcopy:                  ;src and dst might overlap so do this by bytes
-        rep     movsb           ;if cx=0 nothing happens
-
-;At this point, we might be done; all LZ4 data ends with five literals and the
-;offset token is ignored.  If we're at the end of our compressed chunk, stop.
-
-        cmp     si,bx           ;are we at the end of our compressed chunk?
-        jae     @@done          ;if so, jump to exit; otherwise, process match
-@@copymatches:
-        lodsw                   ;AX = match offset
-        xchg    dx,ax           ;AX = packed token, DX = match offset
-        and     al,0Fh          ;unpack match length token
-        call    buildfullcount  ;build full match count if necessary
-@@domatchcopy:
-        push    ds
-        push    si              ;ds:si saved, xchg with ax would destroy ah
-        mov     si,di
-        sub     si,dx
-        push    es
-        pop     ds              ;ds:si points at match; es:di points at dest
-        add     cx,4            ;minmatch = 4
-                                ;Can't use MOVSWx2 because [es:di+1] is unknown
-        rep     movsb           ;copy match run if any left
-        pop     si
-        pop     ds              ;ds:si restored
-        jmp     @@parsetoken
-
-buildfullcount:
-                                ;CH has to be 0 here to ensure AH remains 0
-        cmp     al,0Fh          ;test if unpacked literal length token is 15?
-        xchg    cx,ax           ;CX = unpacked literal length token; flags unchanged
-        jne     builddone       ;if AL was not 15, we have nothing to build
-buildloop:
-        lodsb                   ;load a byte
-        add     cx,ax           ;add it to the full count
-        cmp     al,0FFh         ;was it FF?
-        je      buildloop       ;if so, keep going
-builddone:
-        retcode
-
-@@done:
-        sub     di,[word ptr outb];subtract original offset from where we are now
-        xchg    ax,di           ;AX = decompressed size
-        pop     ds              ;restore compiler assumptions
-        retcode
-
-ENDP    _lz4_decompress_small
-
-ENDS    CODE
 
         END
