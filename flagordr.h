@@ -27,6 +27,7 @@ class Flag far *PRIDE_FLAGS[]={
 	&genderflux_flag,
 	&genderqueer_flag,
 	&greysexual_flag,
+	&progressive_intersex_pride_flag,
 	&intersex_flag,
 	&jewish_pride_flag,
 	&labrys_flag,
