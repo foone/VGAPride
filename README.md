@@ -20,3 +20,5 @@ This project uses Borland Turbo C++ 3.0 and Borland Turbo Assembler 5.0.
 The code is licensed under the terms of the GPL, version 3.
 
 It uses Jim Leonard's [lz4_8088](http://www.oldskool.org/pc/lz4_8088), which is under the the Demoscene License.  
+
+The Autistic Pride Flag was created by Autistic Empire, and is used under a Creative Commons Attribution-ShareAlike 4.0 International License: https://www.autisticempire.com/autistic-pride/

@@ -5,7 +5,10 @@
 #include "geometry.h"
 // Brazil is defined in its own file for Reasons
 #include "brazil.h"
+// The autistic pride flag works the same as crabs, so it's in here. I'm sorry. 
 #include "crabs.h"
+
+
 
 // Shouldn't we be able to declare this inline?
 // YEAH YOU'D THINK. UNFORTUNATELY, BORLAND C++ 3.0 DISAGREES
@@ -1094,8 +1097,121 @@ static Flag progressive_intersex_pride_flag = Flag(
 	"The Intersex-Inclusive (Progress) Pride Flag",
 	"Created in 2021 by Valentino Vecchietti",
 	"progress2022|progressive2022|progress-inclusive",
-	progressive_intersex_pride_flag_commands
+	progressive_intersex_pride_flag_commands,
+	RGB(128,128,128),
+	3,
+	LAYOUT_CENTER
 );
+int polygon_poly_heart[]={
+	230,159,143,245,122,253,104,252,85,244,69,229,62,212,62,192,65,180,69,172,
+	79,159,67,144,62,128,62,109,71,88,88,72,111,65,127,67,140,73,148,78,
+	-1,-1};
+static GraphicsCommand tricolor_polyamory_pride_flag_commands[]={
+	GraphicsCommand(Rectangle,Left(h_3_0),Right(h_3_1),RGB(  0,159,227)),
+	GraphicsCommand(Rectangle,Left(h_3_1),Right(h_3_2),RGB(228,  0, 80)),
+	GraphicsCommand(Rectangle,Left(h_3_2),Right(h_3_3),RGB( 52, 12, 70)),
+	// white chevron
+	GraphicsCommand(Quad,Point(0,0),Point(159,  0),Point(318,159),Point(0,479),RGB(255,255,255)),
+	// yellow heart
+	GraphicsCommand(Polygon,polygon_poly_heart,RGB(252,191,  0)),
+	GraphicsCommand(EndCommandList)
+};
+
+static Flag tricolor_polyamory_pride_flag = Flag(
+	"tricolor-polyamory",
+	"The tricolor polyamory pride flag",
+	"Created in 2022 by Red Howell, selected by community on polyamproud.com",
+	"tricolor-poly|polyamproud",
+	tricolor_polyamory_pride_flag_commands
+);
+
+
+static GraphicsCommand voidpunk_pride_flag_commands[]={
+	GraphicsCommand(Rectangle,Left(  0),Right(101),RGB( 55, 46, 73)),
+	GraphicsCommand(Rectangle,Left(101),Right(219),RGB(158,116,182)),
+	GraphicsCommand(Rectangle,Left(219),Right(262),RGB(233,233,233)),
+	GraphicsCommand(Rectangle,Left(262),Right(379),RGB( 81,172, 86)),
+	GraphicsCommand(Rectangle,Left(379),Right(480),RGB( 32, 69, 44)),
+	// grey circle
+	GraphicsCommand(Ellipse,Point(320,240),103,103,RGB(233,233,233)),
+	// black circle inside grey circle
+	GraphicsCommand(Ellipse,Point(320,240),72,72,RGB( 27, 23, 30)),
+
+	GraphicsCommand(EndCommandList)
+};
+
+static Flag voidpunk_pride_flag = Flag(
+	"voidpunk",
+	"The voidpunk pride flag",
+	"Created in 2018 by tumblr user simeleons (Simon)", // https://simeleons.tumblr.com/post/179520932707/i-tried-my-hand-at-making-a-voidpunk-flag-d-the
+	"void-punk",
+	voidpunk_pride_flag_commands
+);
+
+static GraphicsCommand pangender_pride_flag_commands[]={
+	GraphicsCommand(Rectangle,Left(h_7_0),Right(h_7_1),RGB(255,247,152)),
+	GraphicsCommand(Rectangle,Left(h_7_1),Right(h_7_2),RGB(255,221,205)),
+	GraphicsCommand(Rectangle,Left(h_7_2),Right(h_7_3),RGB(255,235,251)),
+	GraphicsCommand(Rectangle,Left(h_7_3),Right(h_7_4),RGB(255,255,255)),
+	GraphicsCommand(Rectangle,Left(h_7_4),Right(h_7_5),RGB(255,235,251)),
+	GraphicsCommand(Rectangle,Left(h_7_5),Right(h_7_6),RGB(255,221,205)),
+	GraphicsCommand(Rectangle,Left(h_7_6),Right(h_7_7),RGB(255,247,152)),
+	GraphicsCommand(EndCommandList)
+};
+
+static Flag pangender_pride_flag = Flag(
+	"pangender",
+	"The Pangender pride flag",
+	"Created in 2015 by tumblr user pangendering (Cari Rez Lobo)", // https://pangendering.tumblr.com/post/109400686126/possible-pangender-pride-flags
+	NULL,
+	pangender_pride_flag_commands,
+	RGB(0,0,0),
+	4,
+	LAYOUT_CENTER
+);
+
+static GraphicsCommand objectum_pride_flag_commands[]={
+	GraphicsCommand(Rectangle,Top(v_5_0),Bottom(v_5_1),RGB(106,159,182)),
+	GraphicsCommand(Rectangle,Top(v_5_1),Bottom(v_5_2),RGB(217,217,217)),
+	GraphicsCommand(Rectangle,Top(v_5_2),Bottom(v_5_3),RGB(253,255,255)),
+	GraphicsCommand(Rectangle,Top(v_5_3),Bottom(v_5_4),RGB(253,255,155)),
+	GraphicsCommand(Rectangle,Top(v_5_4),Bottom(v_5_5),RGB(180,153,194)),
+	// red circle
+	GraphicsCommand(Ellipse,Point(320,240),136,136,RGB(227,  0,  0)),
+	// white circle
+	GraphicsCommand(Ellipse,Point(320,240),122,122,RGB(253,255,255)),
+	GraphicsCommand(EndCommandList)
+};
+
+static Flag objectum_pride_flag = Flag(
+	"objectum",
+	"The Objectum pride flag",
+	"The creator/date of this flag is unknown", // https://www.lgbtqia.wiki/wiki/Objectum
+	"objectum-sexuality",
+	objectum_pride_flag_commands,
+	RGB(0,0,0),
+	4,
+	LAYOUT_CENTER
+);
+
+static GraphicsCommand ps_slash_2_pride_flag_commands[]={
+	GraphicsCommand(Rectangle,Left(h_5_0),Right(h_5_1),RGB(147,140,243)),
+	GraphicsCommand(Rectangle,Left(h_5_1),Right(h_5_2),RGB(  0,215,142)),
+	GraphicsCommand(Rectangle,Left(h_5_2),Right(h_5_3),RGB(213,207,195)),
+	GraphicsCommand(Rectangle,Left(h_5_3),Right(h_5_4),RGB(  0,215,142)),
+	GraphicsCommand(Rectangle,Left(h_5_4),Right(h_5_5),RGB(147,140,243)),
+	GraphicsCommand(EndCommandList)
+};
+
+static Flag ps_slash_2_pride_flag = Flag(
+	"ps/2",
+	"The PS/2 Pride Flag",
+	"Designed by Foone Turing in 2021",
+	"ps2|ps-slash-2|ibm",
+	ps_slash_2_pride_flag_commands
+);
+
+
 
 
 #include "flagordr.h"

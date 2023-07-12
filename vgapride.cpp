@@ -169,15 +169,13 @@ void quickFlags(){
 }
 
 void displayUsage(){
-	printf("VGAPride %s by Foone Turing (@foone), 2022\n", VERSION);
-	printf("Other credits:\n");
+	printf("VGAPride %s by Foone Turing (@foone@digipres.club), 2022-2023. Other credits:\n", VERSION);
 	printf(" * lz4_8088 decompression code: Jim Leonard\n");
 	printf(" * Aegosexual Flag: Keiya (@keiyakins)\n");
 	printf(" * Many flags: Rebecca G. Bettencourt (@RebeccaRGB)\n");
+	printf(" * Autistic Pride Flag licensed under a Creative Commons Attribution-ShareAlike 4.0 International License, from autisticempire.com/autistic-pride/\n");
 	printf("\nUsage: VGAPRIDE <FLAGNAME>\n");
-	printf("run VGAPRIDE LIST | MORE to see a list of available flags. \n");
-
-	printf("use VGAPRIDE SLIDESHOW for a slideshow of flags!\n");
+	printf("run VGAPRIDE LIST | MORE for a list of flags, or try VGAPRIDE SLIDESHOW:\n");
 	printf("left/right to scroll through flags, Escape to quit.\n");
 	printf("\nQuick List:\n");
 	quickFlags();
