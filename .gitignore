@@ -34,3 +34,10 @@
 
 # Borland temp files:
 *.SWP
+
+__pycache__
+
+
+# generated files
+flagdefs.mak
+flagordr.cpp

@@ -1,7 +1,7 @@
 import os 
 from extract_flags import extract_flags
 
-prideflags = extract_flags()
+prideflags , used_filenames = extract_flags()
 
 with open(os.path.join('..','flagordr.cpp'),'w') as f:
 	print("""
@@ -21,3 +21,11 @@ with open(os.path.join('..','flagordr.cpp'),'w') as f:
 	for name, identifier in prideflags:
 		print('\t&{},'.format(identifier),file=f)
 	print('\tNULL\n};\n',file=f)
+
+with open(os.path.join('..','flagdefs.mak'),'w') as f:
+	paths=[r'flags\\{}.obj'.format(os.path.splitext(path)[0]) for path in used_filenames]
+
+	print('FLAGDEFS = {} \\'.format(paths[0]),file=f)
+	for path in paths[1:-1]:
+		print('\t{} \\'.format(path),file=f)
+	print('\t{}'.format(paths[-1]),file=f)
