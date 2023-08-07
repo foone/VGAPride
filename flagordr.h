@@ -7,7 +7,6 @@ class Flag far *PRIDE_FLAGS[]={
 	&aroace_flag,
 	&aromantic_flag,
 	&asexual_flag,
-	&autistic_pride_flag,
 	&bear_flag,
 	&bigender_flag,
 	&bisexual_flag,
@@ -40,10 +39,8 @@ class Flag far *PRIDE_FLAGS[]={
 	&maya_kern_lesbian_flag,
 	&neutrois_flag,
 	&nonbinary_flag,
-	&objectum_pride_flag,
 	&omnisexual_flag,
 	&original_rainbow_flag,
-	&pangender_pride_flag,
 	&pansexual_flag,
 	&philadelphia_pride_flag,
 	&pink_union_jack_flag,
@@ -51,7 +48,6 @@ class Flag far *PRIDE_FLAGS[]={
 	&polysexual_flag,
 	&proculsexual_flag,
 	&progressive_flag,
-	&ps_slash_2_pride_flag,
 	&rainbow_flag,
 	&rubber_pride_flag,
 	&sadlesbeandisaster_lesbian_flag,
@@ -59,8 +55,6 @@ class Flag far *PRIDE_FLAGS[]={
 	&trains_flag,
 	&trans_pride,
 	&trans_crab_flag,
-	&tricolor_polyamory_pride_flag,
-	&voidpunk_pride_flag,
 	NULL
 };
 

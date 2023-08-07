@@ -1,0 +1,41 @@
+FLAGDEFS = flags\\asexual.obj flags\\bipan.obj flags\\brazil.obj \
+           flags\\crabs.obj flags\\demi.obj flags\\disablty.obj flags\\enby.obj \
+           flags\\fluid.obj flags\\gay.obj flags\\intersex.obj flags\\jewish.obj \
+           flags\\jokes.obj flags\\leather.obj flags\\lesbian.obj flags\\nations.obj \
+           flags\\objectum.obj flags\\poly.obj flags\\prog.obj flags\\rainbows.obj \
+           flags\\rubber.obj flags\\trans.obj flags\\voidpunk.obj flags\\black.obj
+
+OBJS = $(FLAGDEFS) display.obj  flagordr.obj flags.obj graphics.obj VGAPRIDE.obj lz4_8088.obj
+OBJSOUT = $(FLAGDEFS:flags\\=OBJS\\) \
+          OBJS\\display.obj OBJS\\flagordr.obj OBJS\\flags.obj OBJS\\graphics.obj OBJS\\VGAPRIDE.obj OBJS\\lz4_8088.obj 
+
+CFLAGS = -H -mh -G- -1- -Ff=32767 -f- -d -nOBJS
+TCLIB = C:\\TC\\LIB\\
+LIBFLAGS = /c 
+ASM = C:\\TASM\\bin\\TASM.exe
+ASMFLAGS = /ml 
+LIBS = C:\TC\LIB\CH C:\TC\LIB\GRAPHICS
+BGIDRIVER = C:\\TC\\BGI\\EGAVGA.OBJ
+BGIFONT = C:\\TC\\BGI\\TRIP.OBJ
+
+.cpp.obj: 
+        TCC -c $(CFLAGS) $<
+
+VGAPRIDE.EXE: $(OBJS)
+        TLINK $(LIBFLAGS) @&&!
+C:\TC\LIB\C0H.OBJ $(OBJSOUT) $(BGIDRIVER) $(BGIFONT)
+$*
+$*
+$(LIBS)
+!
+
+lz4_8088.obj: lz4_8088.asm
+        $(ASM) $(ASMFLAGS) lz4_8088.asm,OBJS\\lz4_8088.obj
+
+
+CLEAN: 
+        del *.obj 
+        del objs\*.obj
+        del *.lst
+        del *.map
+        del vgapride.exe
